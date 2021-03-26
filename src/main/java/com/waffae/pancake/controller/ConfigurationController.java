@@ -1,5 +1,6 @@
 package com.waffae.pancake.controller;
 
+import com.example.starter.config.ThreadPoolAutoConfiguration;
 import com.waffae.pancake.model.properties.Lucy;
 import com.waffae.pancake.model.properties.Lucy2;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -26,9 +27,13 @@ public class ConfigurationController {
     @Resource
     private Lucy2 lucy2;
 
+    @Resource
+    private ThreadPoolAutoConfiguration threadPoolAutoConfiguration;
+
     @GetMapping(value = "/api/v1/config/getbean")
-    public ResponseEntity getConfigFromBean(){
-        String name =lucy.getName();
+    public ResponseEntity getConfigFromBean() {
+        String name = lucy.getName();
+
         return ResponseEntity.ok(name);
     }
 
@@ -36,8 +41,8 @@ public class ConfigurationController {
      * 配置从自定义配置文件获取
      */
     @GetMapping(value = "/api/v1/config/getbean2")
-    public ResponseEntity getConfigFromBean2(){
-        String name =lucy2.getName()+";"+lucy2.getAddress();
+    public ResponseEntity getConfigFromBean2() {
+        String name = lucy2.getName() + ";" + lucy2.getAddress();
         return ResponseEntity.ok(name);
     }
 }

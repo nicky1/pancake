@@ -10,7 +10,7 @@ public class ClassStaticInitTest {
         i = 2;
     }
 
-    static int i =1;
+    static int i = 1;
 
     public static void main(String[] args) {
         System.out.println(i);

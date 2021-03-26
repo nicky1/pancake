@@ -25,7 +25,7 @@ public class DeepenSleep {
         thread.start();
         demo.m2();
 
-        System.out.println("num3:"+ number);
+        System.out.println("num3:" + number);
     }
 
     public void m1() {
@@ -34,7 +34,7 @@ public class DeepenSleep {
             System.out.println("num:" + number);
 
             number += 888;
-            System.out.println("m1 number"+number);
+            System.out.println("m1 number" + number);
         }
     }
 
@@ -48,7 +48,7 @@ public class DeepenSleep {
             System.out.println("sleep done");
 
             number *= 100;
-            System.out.println("m2 number:"+number);
+            System.out.println("m2 number:" + number);
         }
     }
 }

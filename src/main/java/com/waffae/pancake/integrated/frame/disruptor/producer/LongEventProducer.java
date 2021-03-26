@@ -25,7 +25,7 @@ public class LongEventProducer {
         }
     };
 
-    public void onData(ByteBuffer byteBuffer){
-        ringBuffer.publishEvent(TRANSLATOR,byteBuffer);
+    public void onData(ByteBuffer byteBuffer) {
+        ringBuffer.publishEvent(TRANSLATOR, byteBuffer);
     }
 }

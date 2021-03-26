@@ -11,11 +11,13 @@ import java.util.concurrent.CountDownLatch;
 public class CacheLinePaddingTest {
 
     public static final long count = 1_0000_0000L;
-    public static class T{
+
+    public static class T {
         public volatile long x = 0;
     }
 
     public static T[] arr = new T[2];
+
     static {
         arr[0] = new T();
         arr[1] = new T();
@@ -26,14 +28,14 @@ public class CacheLinePaddingTest {
         // 启动2个线程,每个线程分别修改数组的2个元素
         CountDownLatch countDownLatch = new CountDownLatch(2);
 
-        new Thread(()->{
+        new Thread(() -> {
             for (int i = 0; i < count; i++) {
                 arr[0].x = i;
             }
             countDownLatch.countDown();
         }).start();
 
-        new Thread(()->{
+        new Thread(() -> {
             for (int i = 0; i < count; i++) {
                 arr[1].x = i;
             }

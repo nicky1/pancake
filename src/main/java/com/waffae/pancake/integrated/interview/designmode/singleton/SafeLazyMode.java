@@ -19,8 +19,8 @@ public class SafeLazyMode {
     public static SafeLazyMode getInstance() {
         // 双重检测锁
         if (Objects.isNull(INSTANCE)) {
-            synchronized (SafeLazyMode.class){
-                if (Objects.isNull(INSTANCE)){
+            synchronized (SafeLazyMode.class) {
+                if (Objects.isNull(INSTANCE)) {
                     // 多线程下,new操作并不是原子操作
                     INSTANCE = new SafeLazyMode();
                 }

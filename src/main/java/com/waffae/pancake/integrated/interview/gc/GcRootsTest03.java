@@ -13,7 +13,7 @@ package com.waffae.pancake.integrated.interview.gc;
 public class GcRootsTest03 {
     private static final int _10MB = 10 * 1024 * 1024;
 
-    private  byte[] memory;
+    private byte[] memory;
 
     private static GcRootsTest03 t;
 

@@ -6,12 +6,12 @@ package com.waffae.pancake.integrated.interview.thread;
  */
 public class SynMethod {
 
-    public synchronized void test(){
+    public synchronized void test() {
         System.out.println("test");
     }
 
-    public void m(){
-        synchronized (this){
+    public void m() {
+        synchronized (this) {
 
         }
     }

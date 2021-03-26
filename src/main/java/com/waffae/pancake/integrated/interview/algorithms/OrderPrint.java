@@ -19,7 +19,7 @@ public class OrderPrint {
     private Semaphore secondSP = new Semaphore(0);
     private Semaphore thirdSP = new Semaphore(0);
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         OrderPrint print = new OrderPrint();
 
         Thread t1 = new Thread(() -> print.first2(() -> System.out.println("first")));
@@ -61,7 +61,7 @@ public class OrderPrint {
         print.run();
     }
 
-    public void first2(Runnable print){
+    public void first2(Runnable print) {
         print.run();
         secondSP.release();
     }

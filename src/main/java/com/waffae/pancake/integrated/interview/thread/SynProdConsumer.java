@@ -14,49 +14,49 @@ public class SynProdConsumer {
     public static void main(String[] args) {
         Data data = new Data();
         new Thread(() -> {
-            for (int i = 0; i < 10; i++){
+            for (int i = 0; i < 10; i++) {
                 try {
                     data.increment();
                 } catch (InterruptedException e) {
 
                 }
             }
-        },"A").start();
+        }, "A").start();
 
         new Thread(() -> {
-            for (int i = 0; i < 10; i++){
+            for (int i = 0; i < 10; i++) {
                 try {
                     data.decrement();
                 } catch (InterruptedException e) {
 
                 }
             }
-        },"B").start();
+        }, "B").start();
     }
 
 }
 
-class  Data{
+class Data {
     private int count;
 
     public void increment() throws InterruptedException {
-        synchronized (this){
-            if (count !=0){
+        synchronized (this) {
+            if (count != 0) {
                 this.wait();
             }
             count++;
-            System.out.println("thread:"+Thread.currentThread().getName()+";count="+count);
+            System.out.println("thread:" + Thread.currentThread().getName() + ";count=" + count);
             this.notifyAll();
         }
     }
 
     public void decrement() throws InterruptedException {
         synchronized (this) {
-            if (count == 0){
+            if (count == 0) {
                 this.wait();
             }
             count--;
-            System.out.println("thread:"+Thread.currentThread().getName()+";count="+count);
+            System.out.println("thread:" + Thread.currentThread().getName() + ";count=" + count);
             this.notifyAll();
         }
     }

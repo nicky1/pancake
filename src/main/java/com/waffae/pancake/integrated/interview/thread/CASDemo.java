@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  */
 public class CASDemo {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         // 开启2个线程模拟ABA 问题
         AtomicStampedReference<Integer> atomicRef = new AtomicStampedReference(1, 1);
 
@@ -26,9 +26,9 @@ public class CASDemo {
 
             System.out.println(atomicRef.compareAndSet(1, 2, atomicRef.getStamp(), atomicRef.getStamp() + 1));
 
-            System.out.println(atomicRef.compareAndSet(2,1,atomicRef.getStamp(),atomicRef.getStamp() + 1));
+            System.out.println(atomicRef.compareAndSet(2, 1, atomicRef.getStamp(), atomicRef.getStamp() + 1));
 
-            System.out.println("a1:"+atomicRef.getStamp());
+            System.out.println("a1:" + atomicRef.getStamp());
 
         }, "a").start();
 
@@ -42,7 +42,7 @@ public class CASDemo {
 
             System.out.println(atomicRef.compareAndSet(1, 3, stamp, stamp + 1));
 
-            System.out.println("b1:"+atomicRef.getStamp());
+            System.out.println("b1:" + atomicRef.getStamp());
         }, "b").start();
     }
 

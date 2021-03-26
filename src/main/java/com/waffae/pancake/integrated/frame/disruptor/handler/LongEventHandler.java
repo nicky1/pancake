@@ -16,6 +16,6 @@ public class LongEventHandler implements EventHandler<LongEvent> {
 
     @Override
     public void onEvent(LongEvent longEvent, long l, boolean b) throws Exception {
-        log.info("handler event:{},l:{},b:{}",JSON.toJSONString(longEvent),l,b);
+        log.info("handler event:{},l:{},b:{}", JSON.toJSONString(longEvent), l, b);
     }
 }

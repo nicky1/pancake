@@ -16,7 +16,7 @@ public class ThreadPoolTest {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 4, 2L, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10));
         executor.allowCoreThreadTimeOut(true);
 
-        for (int i = 0; i <20; i++) {
+        for (int i = 0; i < 20; i++) {
             executor.execute(new WT1());
 //            TimeUnit.SECONDS.sleep(1);
         }
@@ -25,7 +25,7 @@ public class ThreadPoolTest {
 }
 
 
-class WT1 implements Runnable{
+class WT1 implements Runnable {
 
     @Override
     public void run() {
@@ -34,7 +34,7 @@ class WT1 implements Runnable{
 //        } catch (InterruptedException e) {
 //        }
 //        System.out.println("task:"+Thread.currentThread().getName());
-        System.out.println(1/0);
+        System.out.println(1 / 0);
     }
 }
 

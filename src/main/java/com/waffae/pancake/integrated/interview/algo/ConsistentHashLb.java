@@ -117,7 +117,7 @@ public class ConsistentHashLb {
     }
 
     public String findNode(String key) {
-        long hash = hash(key,0);
+        long hash = hash(key, 0);
         if (circle.containsKey(hash)) {
             return circle.get(hash);
         } else {

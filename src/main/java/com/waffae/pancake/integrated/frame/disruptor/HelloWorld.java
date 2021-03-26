@@ -23,7 +23,7 @@ public class HelloWorld {
         int bufferSize = 1024;
 
         //construct the disruptor
-        Disruptor<LongEvent> disruptor = new Disruptor<LongEvent>(factory,bufferSize, DaemonThreadFactory.INSTANCE);
+        Disruptor<LongEvent> disruptor = new Disruptor<LongEvent>(factory, bufferSize, DaemonThreadFactory.INSTANCE);
 
         //connect the handler
         disruptor.handleEventsWith(new LongEventHandler());
@@ -38,8 +38,7 @@ public class HelloWorld {
 
         ByteBuffer bb = ByteBuffer.allocate(8);
 
-        for (long l = 0; true; l++)
-        {
+        for (long l = 0; true; l++) {
             bb.putLong(0, l);
             producer.onData(bb);
 //            Thread.sleep(1000);

@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class ThreadPoolTest {
 
     public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = new ThreadPoolExecutor(2,4,1000, TimeUnit.SECONDS,new ArrayBlockingQueue<>(5));
+        ExecutorService executorService = new ThreadPoolExecutor(2, 4, 1000, TimeUnit.SECONDS, new ArrayBlockingQueue<>(5));
 
         TestThread t1 = new TestThread();
 
@@ -27,7 +27,7 @@ public class ThreadPoolTest {
 
 }
 
-class TestThread implements Runnable{
+class TestThread implements Runnable {
 
     @Override
     public void run() {

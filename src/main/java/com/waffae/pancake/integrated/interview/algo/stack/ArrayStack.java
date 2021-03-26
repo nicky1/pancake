@@ -15,26 +15,26 @@ public class ArrayStack {
     private int count;
     private int n;
 
-    public ArrayStack( int n) {
+    public ArrayStack(int n) {
         this.itmes = new String[n];
         this.count = 0;
-        this.n=n;
+        this.n = n;
     }
 
-    public boolean push(String value){
-        if (n == count){
+    public boolean push(String value) {
+        if (n == count) {
             return false;
         }
-        itmes[count]=value;
+        itmes[count] = value;
         count++;
         return true;
     }
 
-    public String pop(){
-        if (count ==0){
+    public String pop() {
+        if (count == 0) {
             return StringUtils.EMPTY;
         }
-        String value = itmes[count-1];
+        String value = itmes[count - 1];
         count--;
         return value;
     }
@@ -48,7 +48,7 @@ public class ArrayStack {
         stack.push("444");
         stack.push("555");
 
-        for (int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             log.info(stack.pop());
         }
 

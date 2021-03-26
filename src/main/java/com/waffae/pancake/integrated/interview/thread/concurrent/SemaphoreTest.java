@@ -27,7 +27,7 @@ public class SemaphoreTest {
 
                     // 时间到了后,开走,释放一个坑,其它的车来占坑
                     semaphore.release();
-                    System.out.println(Thread.currentThread().getName()+"释放车位");
+                    System.out.println(Thread.currentThread().getName() + "释放车位");
                 } catch (Exception e) {
                 }
             }, String.valueOf(i)).start();

@@ -64,7 +64,7 @@ class Data2 {
 
     public void increment() throws InterruptedException {
         synchronized (this) {
-            while (count !=0){
+            while (count != 0) {
                 this.wait();
             }
             count++;
@@ -75,7 +75,7 @@ class Data2 {
 
     public void decrement() throws InterruptedException {
         synchronized (this) {
-            while (count == 0){
+            while (count == 0) {
                 this.wait();
             }
             count--;

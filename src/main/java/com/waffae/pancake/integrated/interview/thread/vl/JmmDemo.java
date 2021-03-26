@@ -18,8 +18,8 @@ public class JmmDemo {
      */
     public static void main(String[] args) throws InterruptedException {
 
-        new Thread(()->{
-            while (num == 0){
+        new Thread(() -> {
+            while (num == 0) {
             }
         }).start();
 

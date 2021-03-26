@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserTestBean {
 
-    private String name ;
+    private String name;
 
-    private int age ;
+    private int age;
 
-    public String getTheName(){
+    public String getTheName() {
         return name;
     }
 

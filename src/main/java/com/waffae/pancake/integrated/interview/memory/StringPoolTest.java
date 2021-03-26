@@ -13,7 +13,7 @@ public class StringPoolTest {
         String s1 = new String("def");
         String s2 = s1.intern();
         System.out.println(s1 == s2);
-        String s3 ="def";
+        String s3 = "def";
 
         // s2 对象 intern(),已经把def 放入了字符串常量池中
         System.out.println(s3 == s2);

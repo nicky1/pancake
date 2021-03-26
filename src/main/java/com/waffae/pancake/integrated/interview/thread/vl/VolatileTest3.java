@@ -13,10 +13,10 @@ public class VolatileTest3 {
      */
     private static volatile boolean running = true;
 
-    int i ;
+    int i;
     volatile int j;
 
-    public void setThreadFailed(){
+    public void setThreadFailed() {
 
     }
 

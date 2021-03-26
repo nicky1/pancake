@@ -2,34 +2,34 @@ package com.waffae.pancake.model;
 
 public class User {
     private String userid;
-    
+
 
     private String username;
 
     private String enname;
-    
+
     private String createtime;
-    
+
     private Role role;
-    
+
     public Role getRole() {
-		return role;
-	}
+        return role;
+    }
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
-	public String getCreatetime() {
-		return createtime;
-	}
+    public String getCreatetime() {
+        return createtime;
+    }
 
-	public void setCreatetime(String createtime) {
-		this.createtime = createtime;
-	}
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
+    }
 
-	public String toString(){
-    	return this.userid+"-"+this.username+"-"+this.enname;
+    public String toString() {
+        return this.userid + "-" + this.username + "-" + this.enname;
     }
 
     public String getUserid() {
@@ -41,7 +41,6 @@ public class User {
      * This method sets the value of the database column user.userId
      *
      * @param userid the value for user.userId
-     *
      * @mbggenerated Tue May 14 11:14:49 CST 2013
      */
     public void setUserid(String userid) {
@@ -53,7 +52,6 @@ public class User {
      * This method returns the value of the database column user.userName
      *
      * @return the value of user.userName
-     *
      * @mbggenerated Tue May 14 11:14:49 CST 2013
      */
     public String getUsername() {
@@ -65,7 +63,6 @@ public class User {
      * This method sets the value of the database column user.userName
      *
      * @param username the value for user.userName
-     *
      * @mbggenerated Tue May 14 11:14:49 CST 2013
      */
     public void setUsername(String username) {
@@ -77,7 +74,6 @@ public class User {
      * This method returns the value of the database column user.enName
      *
      * @return the value of user.enName
-     *
      * @mbggenerated Tue May 14 11:14:49 CST 2013
      */
     public String getEnname() {
@@ -89,7 +85,6 @@ public class User {
      * This method sets the value of the database column user.enName
      *
      * @param enname the value for user.enName
-     *
      * @mbggenerated Tue May 14 11:14:49 CST 2013
      */
     public void setEnname(String enname) {

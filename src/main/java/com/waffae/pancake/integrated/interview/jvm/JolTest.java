@@ -19,7 +19,7 @@ public class JolTest {
         System.out.println(s);
 
         // synchronized锁,会使用到对象头上的mark word,这里通过jol对比观察
-        synchronized (user){
+        synchronized (user) {
             System.out.println(ClassLayout.parseInstance(user).toPrintable());
         }
 

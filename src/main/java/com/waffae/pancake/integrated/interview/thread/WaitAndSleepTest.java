@@ -16,20 +16,20 @@ public class WaitAndSleepTest {
     public static void main(String[] args) throws InterruptedException {
         Object object = new Object();
 
-        Thread thread = new Thread(()->{
+        Thread thread = new Thread(() -> {
             try {
                 TimeUnit.SECONDS.sleep(4);
                 System.out.println("aaa");
             } catch (InterruptedException e) {
             }
-        },"a");
+        }, "a");
 
         thread.start();
 
-        Thread thread2 = new Thread(()->{
+        Thread thread2 = new Thread(() -> {
             System.out.println("bbb");
 
-        },"b");
+        }, "b");
 
         thread2.start();
 

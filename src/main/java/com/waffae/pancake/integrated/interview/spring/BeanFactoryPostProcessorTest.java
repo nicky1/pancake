@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * 1.BeanFactoryPostProcessor 是在spring容器加载了bean定义文件之后，bean实例化之前执行的。
  * 2.可以在bean实例化之前进行自定义的扩展,
  * 3.而 BeanPostProcessor 是在bean 实例化之后，bean初始化之前进行的。
- *   是在 BeanFactoryPostProcessor 之后执行的。
+ * 是在 BeanFactoryPostProcessor 之后执行的。
  *
  * @author yixiaoshuang
  * @date 2020/12/26 14:38
@@ -32,11 +32,11 @@ public class BeanFactoryPostProcessorTest implements BeanFactoryPostProcessor {
 
         BeanDefinition bd = beanFactory.getBeanDefinition("userTestBean");
 
-        log.info("properties:{}" , bd.getPropertyValues().toString());
+        log.info("properties:{}", bd.getPropertyValues().toString());
 
         MutablePropertyValues propertyValues = bd.getPropertyValues();
-        if (propertyValues.contains("name")){
-            propertyValues.addPropertyValue("name","李四");
+        if (propertyValues.contains("name")) {
+            propertyValues.addPropertyValue("name", "李四");
         }
 
     }

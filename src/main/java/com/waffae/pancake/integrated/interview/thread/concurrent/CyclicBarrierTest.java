@@ -7,13 +7,12 @@ import java.util.concurrent.TimeUnit;
 /**
  * 水闸
  *
- *
  * @author yixiaoshuang
  * @date 2020/12/6 16:47
  */
 public class CyclicBarrierTest {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         // 集齐7颗龙珠后,召唤神龙
         CyclicBarrier barrier = new CyclicBarrier(7, () -> System.out.println("集齐7颗龙珠后,召唤神龙"));

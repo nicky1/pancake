@@ -59,6 +59,7 @@ public class StockSell {
         int prices[] = new int[]{7, 1, 5, 3, 6, 4, 9};
         int profit = maxProfit(prices);
         log.info("maxProfit:{}", profit);
+        String s = "";
     }
 
 }

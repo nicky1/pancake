@@ -57,7 +57,7 @@ class WT implements Runnable {
     public void run() {
         System.out.println("111111111");
 
-        while (true){
+        while (true) {
             System.out.println("2222");
         }
     }

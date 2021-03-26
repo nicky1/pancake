@@ -22,9 +22,9 @@ public class SpinLockTest {
 
             try {
                 TimeUnit.SECONDS.sleep(5);
-            }catch (Exception e) {
+            } catch (Exception e) {
 
-            }finally {
+            } finally {
                 lock.unlock();
             }
 
@@ -37,9 +37,9 @@ public class SpinLockTest {
             System.out.println("t2 go ");
             try {
                 TimeUnit.SECONDS.sleep(3);
-            }catch (Exception e) {
+            } catch (Exception e) {
 
-            }finally {
+            } finally {
                 lock.unlock();
             }
 

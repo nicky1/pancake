@@ -8,15 +8,15 @@ package com.waffae.pancake.integrated.interview.designmode.singleton;
  */
 public class Holder {
 
-    private Holder(){
+    private Holder() {
         System.out.println("init holder");
     }
 
-    public static Holder getInstance(){
+    public static Holder getInstance() {
         return Inner.holder;
     }
 
-    public static class Inner{
+    public static class Inner {
         private static final Holder holder = new Holder();
     }
 

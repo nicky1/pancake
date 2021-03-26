@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class DeadLockSample {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         String lockA = "lockA";
         String lockB = "lockB";
 
@@ -51,7 +51,7 @@ class DeadData {
 
     public void monitorDead() {
         synchronized (first) {
-            log.info("name1 :{},obtained:{}", name,first);
+            log.info("name1 :{},obtained:{}", name, first);
 
             try {
                 TimeUnit.SECONDS.sleep(5);
@@ -59,7 +59,7 @@ class DeadData {
             }
 
             synchronized (second) {
-                log.info("name2 :{},obtained:{}",name, second);
+                log.info("name2 :{},obtained:{}", name, second);
             }
 
         }

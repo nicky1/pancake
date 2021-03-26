@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * https://www.cnblogs.com/paddix/p/5309550.html
+ *
  * @Author: yixiaoshuang
  * @Date: 2018/8/30 23:53
  * @Description: 虚拟机栈
@@ -15,16 +16,17 @@ import java.util.List;
 public class VirtualStackTest {
 
     private static Integer index = 1;
+
     //stackofflowerror
-    public void call(){
+    public void call() {
         index++;
         call();
     }
 
     //outofmerory error
-    public void testOOM(){
+    public void testOOM() {
         List list = Lists.newArrayList();
-        while (true){
+        while (true) {
             list.add("222");
         }
 
@@ -34,6 +36,7 @@ public class VirtualStackTest {
      * 当栈调用深度>jvm 所允许的范围，会抛出 stackoverflow 的异常，不过这个范围不是一个恒定的值
      * 1.需要注意这里捕获的是 throwable，而不是 exception。
      * 2.还有一种错误：当申请不到空间时，会抛出 outofmeroryerror。
+     *
      * @param args
      */
     public static void main(String[] args) {

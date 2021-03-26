@@ -19,7 +19,7 @@ public class CacheLinePaddingTest2 {
      * 填充满一个缓存行,保证变量在多线程环境下,变量不会处于同一个缓存行。这样对共享变量的修改不会产生同步。
      */
     public static class T {
-//        public long p1, p2, p3, p4, p5, p6, p7;
+        //        public long p1, p2, p3, p4, p5, p6, p7;
 //        @sun.misc.Contended
         public volatile long x = 0;
 //        public long p9, p10, p11, p12, p13, p14, p15;

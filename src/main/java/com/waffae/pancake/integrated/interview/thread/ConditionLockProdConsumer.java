@@ -68,13 +68,13 @@ class Data3 {
     public void increment() throws InterruptedException {
         lock.lock();
         try {
-            while (count !=0){
+            while (count != 0) {
                 condition.await();
             }
             count++;
             System.out.println("thread:" + Thread.currentThread().getName() + ";count=" + count);
             condition.signalAll();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }
@@ -82,13 +82,13 @@ class Data3 {
     public void decrement() throws InterruptedException {
         lock.lock();
         try {
-            while (count == 0){
+            while (count == 0) {
                 condition.await();
             }
             count--;
             System.out.println("thread:" + Thread.currentThread().getName() + ";count=" + count);
             condition.signalAll();
-        }finally {
+        } finally {
             lock.unlock();
         }
 

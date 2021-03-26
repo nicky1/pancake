@@ -30,7 +30,7 @@ public class WaitTest {
             System.out.println("lock");
             object.wait();
 
-        }finally {
+        } finally {
             lock.unlock();
         }
     }

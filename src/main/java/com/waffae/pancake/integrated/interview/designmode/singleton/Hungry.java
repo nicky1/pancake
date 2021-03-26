@@ -2,18 +2,20 @@ package com.waffae.pancake.integrated.interview.designmode.singleton;
 
 /**
  * 饿汉式
+ *
  * @author yixiaoshuang
  * @date 2020/12/10 08:48
  */
 public class Hungry {
 
     // 单例模式,要保证构造方法私有
-    private Hungry(){}
+    private Hungry() {
+    }
 
-    private static final Hungry INSTANCE =  new Hungry();
+    private static final Hungry INSTANCE = new Hungry();
 
     // 提供对外获取对象的静态方法
-    public static Hungry getInstance(){
+    public static Hungry getInstance() {
         return INSTANCE;
     }
 

@@ -28,13 +28,14 @@ public class VLDemo {
         }
 
         TimeUnit.SECONDS.sleep(3);
-        System.out.println(num+";;;;;;"+num2);
+        System.out.println(num + ";;;;;;" + num2);
     }
 
     public static void add() {
         // 虽然num变量使用了volatile来修饰,但 ++ 操作不是原子操作。所以num的值不能保证原子性。
         num++;
     }
+
     public static void add2() {
         num2.getAndIncrement();
     }

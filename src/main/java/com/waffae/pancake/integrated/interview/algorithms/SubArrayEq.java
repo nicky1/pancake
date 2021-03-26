@@ -15,24 +15,24 @@ import java.util.Map;
 public class SubArrayEq {
 
     public static void main(String[] args) {
-        int[] a =new int[]{1,5,6,5,10,1,20};
-        int k=11;
-        int result = subArraySum(a,k);
-        log.info("result:{}",result);
+        int[] a = new int[]{1, 5, 6, 5, 10, 1, 20};
+        int k = 11;
+        int result = subArraySum(a, k);
+        log.info("result:{}", result);
 
     }
 
-    public static Integer subArraySum(int a[],int k){
-        Map<Integer,Integer> map = Maps.newHashMap();
-        int sum=0 ,count =0;
-        map.put(0,1);
+    public static Integer subArraySum(int a[], int k) {
+        Map<Integer, Integer> map = Maps.newHashMap();
+        int sum = 0, count = 0;
+        map.put(0, 1);
 
-        for (int i=0,len = a.length;i<len;i++){
-            sum +=a[i];
-            if(map.containsKey(sum - k)){
-                count+=map.get(sum-k);
+        for (int i = 0, len = a.length; i < len; i++) {
+            sum += a[i];
+            if (map.containsKey(sum - k)) {
+                count += map.get(sum - k);
             }
-            map.put(sum ,map.getOrDefault(sum ,0)+1);
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
 
         return count;

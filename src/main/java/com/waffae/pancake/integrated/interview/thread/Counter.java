@@ -33,7 +33,7 @@ public class Counter {
 /**
  * 资源-即可能有共享变量的主体。
  */
-class CtCounter{
+class CtCounter {
     private final ReentrantLock lock = new ReentrantLock();
 
     private int count;
@@ -42,27 +42,27 @@ class CtCounter{
 
     public volatile int a;
 
-    private AtomicIntegerFieldUpdater updater = AtomicIntegerFieldUpdater.newUpdater(CtCounter.class,"a");
+    private AtomicIntegerFieldUpdater updater = AtomicIntegerFieldUpdater.newUpdater(CtCounter.class, "a");
 
-    public void add(){
+    public void add() {
         lock.lock();
         try {
-            for (int i =0;i<100000;i++){
+            for (int i = 0; i < 100000; i++) {
                 count++;
             }
-        }finally {
+        } finally {
             lock.unlock();
         }
     }
 
-    public void add2(){
+    public void add2() {
         for (int i = 0; i < 100000; i++) {
             count++;
         }
     }
 
     // 使用AtomicInteger保证原子性
-    public void add3(){
+    public void add3() {
         for (int i = 0; i < 100000; i++) {
             atomicInteger.getAndIncrement();
         }
@@ -72,7 +72,7 @@ class CtCounter{
 
     }
 
-    public void print(){
+    public void print() {
         System.out.println(atomicInteger.get());
     }
 

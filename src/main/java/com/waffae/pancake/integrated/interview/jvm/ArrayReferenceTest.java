@@ -15,7 +15,7 @@ public class ArrayReferenceTest {
 
     public static void main(String[] args) {
         String appPath = System.getProperty("java.class.path");
-        String appPath2 = appPath.replaceAll(":",System.lineSeparator());
+        String appPath2 = appPath.replaceAll(":", System.lineSeparator());
         System.out.println(appPath2);
 
         List<Integer> list = Lists.newArrayList(1);
@@ -25,15 +25,15 @@ public class ArrayReferenceTest {
         System.out.println(referenceTest);
         referenceTest.func(list);
 
-        for (Integer i : list){
-            System.out.println("a:"+i);
+        for (Integer i : list) {
+            System.out.println("a:" + i);
         }
     }
 
-    public void func(List<Integer> list){
+    public void func(List<Integer> list) {
 //        list = list.stream().filter(v -> v >1).collect(Collectors.toList());
 
-        for (Integer i : list){
+        for (Integer i : list) {
 //            System.out.println("b:"+i);
         }
         list.add(4);

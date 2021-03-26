@@ -22,11 +22,12 @@ public class InvokeTest {
     public static void m() {
     }
 
-    private void n(){
+    private void n() {
 
     }
 
-    public void m3(){}
+    public void m3() {
+    }
 }
 
 

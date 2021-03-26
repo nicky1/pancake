@@ -9,7 +9,7 @@ package com.waffae.pancake.integrated.interview.jvm;
 public class TestPlus {
 
     public static void main(String[] args) {
-        int i =10;
+        int i = 10;
 //        i = i++;
         int j = i++;
         System.out.println(i);
@@ -18,8 +18,8 @@ public class TestPlus {
 
     }
 
-    public void foo(Object lock){
-        synchronized (lock){
+    public void foo(Object lock) {
+        synchronized (lock) {
             lock.hashCode();
         }
     }

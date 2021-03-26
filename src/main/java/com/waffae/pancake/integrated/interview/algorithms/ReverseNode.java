@@ -15,9 +15,7 @@ import java.util.LinkedList;
 public class ReverseNode {
 
 
-
-
-    public static class TestNode<T>{
+    public static class TestNode<T> {
         public T node;
         public TestNode next;
 
@@ -28,23 +26,23 @@ public class ReverseNode {
     }
 
     public static void main(String[] args) {
-        TestNode t1 = new TestNode("d",null);
-        TestNode t2 = new TestNode("c",t1);
-        TestNode t3 = new TestNode("b",t2);
-        TestNode t4 = new TestNode("a",t3);
-        LinkedList<TestNode> l1= Lists.newLinkedList();
+        TestNode t1 = new TestNode("d", null);
+        TestNode t2 = new TestNode("c", t1);
+        TestNode t3 = new TestNode("b", t2);
+        TestNode t4 = new TestNode("a", t3);
+        LinkedList<TestNode> l1 = Lists.newLinkedList();
         l1.add(t1);
         l1.add(t2);
         l1.add(t3);
         l1.add(t4);
 
-        for (TestNode t : l1){
+        for (TestNode t : l1) {
             log.info(JSON.toJSONString(t));
         }
 
         TestNode cur = t4;
         TestNode pre = null;
-        while (cur != null){
+        while (cur != null) {
             TestNode nextNode = cur.next; //临时节点存储，下一个
             cur.next = pre; //当前节点 指向前一个节点
             pre = cur;      //前节点，到 现任节点
@@ -52,7 +50,7 @@ public class ReverseNode {
 
         }
         log.info(JSON.toJSONString(pre));
-        log.info("a:"+JSON.toJSONString(l1));
+        log.info("a:" + JSON.toJSONString(l1));
 
 
     }

@@ -10,14 +10,14 @@ public class BinarySearchTree {
 
     private Node tree;
 
-    public Node find(int data){
+    public Node find(int data) {
         Node p = tree;
-        while (p != null){
-            if (p.data == data){
+        while (p != null) {
+            if (p.data == data) {
                 return p;
-            }else if (p.data > data){
+            } else if (p.data > data) {
                 p = p.left;
-            }else {
+            } else {
                 p = p.right;
             }
         }
@@ -30,7 +30,7 @@ public class BinarySearchTree {
         private Node left;
         private Node right;
 
-        public Node(int data){
+        public Node(int data) {
             this.data = data;
         }
     }

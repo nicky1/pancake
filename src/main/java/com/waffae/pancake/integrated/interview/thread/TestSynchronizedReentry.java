@@ -12,8 +12,8 @@ public class TestSynchronizedReentry {
 
     }
 
-    public void m(){
-        synchronized (this){
+    public void m() {
+        synchronized (this) {
 //            System.out.println("mm");
         }
     }

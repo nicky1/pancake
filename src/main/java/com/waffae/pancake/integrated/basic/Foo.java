@@ -8,10 +8,10 @@ public class Foo {
 
     public static void main(String[] args) {
         boolean flag = false;
-        if (!flag){
+        if (!flag) {
             System.out.println("hello java");
         }
-        if (flag != true){
+        if (flag != true) {
             System.out.println("hello jvm");
         }
 

@@ -121,7 +121,7 @@ public class Sorts {
      **/
     public static void main(String[] args) {
 //        int ar[] = new int[]{2, 23, 1, 89, 2, 1, 33, 44, 9};
-        int ar[] = new int[]{19,5,4,6,1,3,2};
+        int ar[] = new int[]{19, 5, 4, 6, 1, 3, 2};
         log.info(Arrays.toString(ar));
 //        bubble(ar);
         insertSort(ar);

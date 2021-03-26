@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class SoftReferenceTest {
 
     public static void main(String[] args) throws InterruptedException {
-        SoftReference<byte[]> m = new SoftReference<>(new byte[1024*1024*10]);
+        SoftReference<byte[]> m = new SoftReference<>(new byte[1024 * 1024 * 10]);
 
 //        m = null;
         System.out.println(m.get());
@@ -23,7 +23,7 @@ public class SoftReferenceTest {
 
         System.out.println(m.get());
 
-        SoftReference<byte[]> m2 = new SoftReference<>(new byte[1024*1024*10]);
+        SoftReference<byte[]> m2 = new SoftReference<>(new byte[1024 * 1024 * 10]);
 
         System.out.println(m.get());
     }

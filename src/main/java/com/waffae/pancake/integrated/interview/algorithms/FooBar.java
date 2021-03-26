@@ -8,7 +8,6 @@ import java.util.concurrent.Semaphore;
  * https://leetcode-cn.com/problems/print-foobar-alternately/
  * 多线程-交替打印
  *
- *
  * @author yixiaoshuang
  * @date 2021/3/10 09:35
  */
@@ -16,7 +15,7 @@ public class FooBar {
 
     private int n;
 
-    FooBar(int n){
+    FooBar(int n) {
         this.n = n;
     }
 
@@ -32,26 +31,26 @@ public class FooBar {
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
 
         FooBar fooBar = new FooBar(3);
-        Thread t1 = new Thread(()->{
+        Thread t1 = new Thread(() -> {
 //            try {
 //                fooBar.printFoo(()-> System.out.print("foo"));
 //            } catch (Exception e) {
 //            }
 
             try {
-                fooBar.printFoo1(()-> System.out.print("foo"));
+                fooBar.printFoo1(() -> System.out.print("foo"));
             } catch (InterruptedException e) {
             }
         });
 
-        Thread t2 = new Thread(()->{
+        Thread t2 = new Thread(() -> {
 //            try {
 //                fooBar.printBar(()-> System.out.print("bar"));
 //            } catch (Exception e){
 //            }
 
             try {
-                fooBar.printBar1(()-> System.out.print("bar"));
+                fooBar.printBar1(() -> System.out.print("bar"));
             } catch (InterruptedException e) {
             }
         });
@@ -63,11 +62,10 @@ public class FooBar {
     /**
      * 1.循环内判断标记位的值，要使用while循环
      * 2.首次，while条件不满足，退出，执行第一次打印foo，重置标记位，水闸位+1
-     *
      */
     public void printFoo(Runnable printFoo) throws BrokenBarrierException, InterruptedException {
         for (int i = 0; i < n; i++) {
-            while (!flag){
+            while (!flag) {
             }
             printFoo.run();
             flag = false;

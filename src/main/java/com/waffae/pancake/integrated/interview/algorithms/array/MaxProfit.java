@@ -1,4 +1,4 @@
-package com.waffae.pancake.integrated.interview.algorithms;
+package com.waffae.pancake.integrated.interview.algorithms.array;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2020/7/23 08:54
  */
 @Slf4j
-public class StockSell {
+public class MaxProfit {
 
     /**
      * 计算最大收益=最大卖出 - 最小买入

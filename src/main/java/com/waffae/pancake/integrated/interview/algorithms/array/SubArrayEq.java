@@ -1,4 +1,4 @@
-package com.waffae.pancake.integrated.interview.algorithms;
+package com.waffae.pancake.integrated.interview.algorithms.array;
 
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;

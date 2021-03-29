@@ -20,7 +20,7 @@ public class CacheLinePaddingTest2 {
      */
     public static class T {
         //        public long p1, p2, p3, p4, p5, p6, p7;
-//        @sun.misc.Contended
+        @sun.misc.Contended
         public volatile long x = 0;
 //        public long p9, p10, p11, p12, p13, p14, p15;
     }

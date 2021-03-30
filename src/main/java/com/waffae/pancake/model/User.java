@@ -3,7 +3,6 @@ package com.waffae.pancake.model;
 public class User {
     private String userid;
 
-
     private String username;
 
     private String enname;

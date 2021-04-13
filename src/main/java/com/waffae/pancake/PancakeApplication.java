@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * starter
  *
- * @ yixiaoshuang
+ * @yixiaoshuang
  */
 @SpringBootApplication
 public class PancakeApplication {

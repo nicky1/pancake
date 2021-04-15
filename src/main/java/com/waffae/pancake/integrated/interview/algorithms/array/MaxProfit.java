@@ -56,10 +56,9 @@ public class MaxProfit {
     }
 
     public static void main(String[] args) {
-        int prices[] = new int[]{7, 1, 5, 3, 6, 4, 9};
+        int prices[] = new int[]{7, 1, 5, 3, 6, 4};
         int profit = maxProfit(prices);
         log.info("maxProfit:{}", profit);
-        String s = "";
     }
 
 }

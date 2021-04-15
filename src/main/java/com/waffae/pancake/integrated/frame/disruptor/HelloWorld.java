@@ -6,8 +6,6 @@ import com.lmax.disruptor.util.DaemonThreadFactory;
 import com.waffae.pancake.integrated.frame.disruptor.handler.LongEventHandler;
 import com.waffae.pancake.integrated.frame.disruptor.producer.LongEventProducer;
 
-import java.nio.ByteBuffer;
-
 /**
  * @author: xiaoshuangyi
  * @Date: 2019-04-02 23:48
@@ -34,15 +32,15 @@ public class HelloWorld {
         //get the ringBuffer from the disruptor to bu used publishing
         RingBuffer<LongEvent> buffer = disruptor.getRingBuffer();
 
-        LongEventProducer producer = new LongEventProducer(buffer);
+        LongEventProducer producer = new LongEventProducer();
+        producer.setRingBuffer(buffer);
 
-        ByteBuffer bb = ByteBuffer.allocate(8);
-
-        for (long l = 0; true; l++) {
-            bb.putLong(0, l);
-            producer.onData(bb);
-//            Thread.sleep(1000);
+        for (long l = 0; l<20; l++) {
+            producer.onData(l+"");
         }
+
+        disruptor.shutdown();
+        System.out.println("done");
 
     }
 }

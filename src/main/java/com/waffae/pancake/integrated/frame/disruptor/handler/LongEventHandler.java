@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.lmax.disruptor.EventHandler;
 import com.waffae.pancake.integrated.frame.disruptor.LongEvent;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 /**
  * @author: xiaoshuangyi
@@ -11,11 +12,17 @@ import lombok.extern.slf4j.Slf4j;
  * @Description:
  */
 @Slf4j
+@Component
 public class LongEventHandler implements EventHandler<LongEvent> {
 
-
     @Override
-    public void onEvent(LongEvent longEvent, long l, boolean b) throws Exception {
-        log.info("handler event:{},l:{},b:{}", JSON.toJSONString(longEvent), l, b);
+    public void onEvent(LongEvent longEvent, long l, boolean b) {
+//        try {
+//            log.info("handler event:{}", JSON.toJSONString(longEvent));
+//        } catch (Exception e) {
+//            log.error("handler ex", e);
+//        }
+        log.info("onevent:{},seq:{}", JSON.toJSONString(longEvent), l);
+
     }
 }

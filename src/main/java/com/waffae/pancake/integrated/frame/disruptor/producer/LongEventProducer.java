@@ -1,31 +1,26 @@
 package com.waffae.pancake.integrated.frame.disruptor.producer;
 
-import com.lmax.disruptor.EventTranslatorOneArg;
+import com.lmax.disruptor.EventTranslatorVararg;
 import com.lmax.disruptor.RingBuffer;
 import com.waffae.pancake.integrated.frame.disruptor.LongEvent;
-
-import java.nio.ByteBuffer;
+import org.springframework.stereotype.Component;
 
 /**
  * @author: xiaoshuangyi
  * @Date: 2019-04-02 23:41
  * @Description:
  */
+@Component
 public class LongEventProducer {
-    private final RingBuffer<LongEvent> ringBuffer;
+    private  RingBuffer<LongEvent> ringBuffer;
 
-    public LongEventProducer(RingBuffer<LongEvent> ringBuffer) {
+    public void setRingBuffer(RingBuffer<LongEvent> ringBuffer) {
         this.ringBuffer = ringBuffer;
     }
 
-    private static final EventTranslatorOneArg<LongEvent, ByteBuffer> TRANSLATOR = new EventTranslatorOneArg<LongEvent, ByteBuffer>() {
-        @Override
-        public void translateTo(LongEvent longEvent, long l, ByteBuffer byteBuffer) {
-            longEvent.setValue(byteBuffer.getLong(0));
-        }
-    };
+    private static final EventTranslatorVararg<LongEvent> translator = (event, sequence, args) -> event.setValue((String) args[0]);
 
-    public void onData(ByteBuffer byteBuffer) {
-        ringBuffer.publishEvent(TRANSLATOR, byteBuffer);
+    public void onData(String value) {
+        ringBuffer.publishEvent(translator, value);
     }
 }

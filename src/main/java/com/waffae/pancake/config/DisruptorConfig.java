@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  */
 @Configuration
 public class DisruptorConfig {
-    private static final int BUFFER_SIZE = 1024;
+    private static final int BUFFER_SIZE = 8;
 
     @Resource
     private LongEventHandler longEventHandler;

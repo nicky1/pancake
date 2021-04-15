@@ -29,6 +29,7 @@ public class DisruptorController {
         RingBuffer<LongEvent> ringBuffer = disruptor.getRingBuffer();
         producer.setRingBuffer(ringBuffer);
         producer.onData(batchNo);
+        System.out.println("controler send data:"+batchNo);
         return ResponseEntity.ok().build();
     }
 }

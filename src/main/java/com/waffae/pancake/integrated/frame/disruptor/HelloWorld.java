@@ -18,7 +18,7 @@ public class HelloWorld {
         LongEventFactory factory = new LongEventFactory();
 
         //the ringBuffer size
-        int bufferSize = 1024;
+        int bufferSize = 8;
 
         //construct the disruptor
         Disruptor<LongEvent> disruptor = new Disruptor<LongEvent>(factory, bufferSize, DaemonThreadFactory.INSTANCE);
@@ -35,8 +35,9 @@ public class HelloWorld {
         LongEventProducer producer = new LongEventProducer();
         producer.setRingBuffer(buffer);
 
-        for (long l = 0; l<20; l++) {
-            producer.onData(l+"");
+        for (long l = 0; l < 20; l++) {
+            producer.onData(l + "");
+            System.out.println("send data:" + l);
         }
 
         disruptor.shutdown();

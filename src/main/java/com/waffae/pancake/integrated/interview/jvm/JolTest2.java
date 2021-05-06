@@ -16,11 +16,12 @@ public class JolTest2 {
         // 这里为什么休眠5秒钟,就可以复现出 偏斜锁? 因为偏斜锁 默认配置的是-系统启动4秒后开启。
         TimeUnit.SECONDS.sleep(5);
 
-        Object user = new Object();
+        T5 user = new T5();
+
         String s = ClassLayout.parseInstance(user).toPrintable();
         System.out.println(s);
 
-
+        System.identityHashCode(user);
         // synchronized锁,会使用到对象头上的mark word,这里通过jol对比观察
         synchronized (user) {
             System.out.println(ClassLayout.parseInstance(user).toPrintable());

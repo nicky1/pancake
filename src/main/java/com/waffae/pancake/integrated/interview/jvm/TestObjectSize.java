@@ -1,7 +1,6 @@
 package com.waffae.pancake.integrated.interview.jvm;
 
 import com.waffae.pancake.model.T;
-import org.apache.lucene.util.RamUsageEstimator;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
@@ -41,28 +40,28 @@ public class TestObjectSize {
         System.out.println(tprintable2);
 
         T t = new T();
-        t.setUserId(userId);
+//        t.setUserId(userId);
 
         long instancesize = ClassLayout.parseInstance(t).instanceSize();
         System.out.println(instancesize);
 
-        // 测试对象t占用的内存大小-对象头(mark word：8个字节 指向类的类型指针-元数据指针：4个字节) 12个字节，实例数据-string类型，开启压缩指针后占用4个字节，即共 12+4=16个字节。
+//        // 测试对象t占用的内存大小-对象头(mark word：8个字节 指向类的类型指针-元数据指针：4个字节) 12个字节，实例数据-string类型，开启压缩指针后占用4个字节，即共 12+4=16个字节。
         String tprintable = ClassLayout.parseInstance(t).toPrintable();
         System.out.println(tprintable);
-
-        String printable = ClassLayout.parseInstance(userId).toPrintable();
-        System.out.println(printable);
-
-        T2 t2 = new T2();
-        String s3 = ClassLayout.parseInstance(t2).toPrintable();
-        System.out.println(s3);
-
-        // 对象及其引用占用内存大小,这里会将t2对象的str属性占用的内存大小一起统计进去，大概=3mb，同时可以结合jprofiler去验证
-        long size4 = RamUsageEstimator.sizeOf(t2);
-        System.out.println(size4);
-
-        // 对象本身占用内存大小:对象头+实例数据
-        long size5 = RamUsageEstimator.shallowSizeOf(t2);
+//
+//        String printable = ClassLayout.parseInstance(userId).toPrintable();
+//        System.out.println(printable);
+//
+//        T2 t2 = new T2();
+//        String s3 = ClassLayout.parseInstance(t2).toPrintable();
+//        System.out.println(s3);
+//
+//        // 对象及其引用占用内存大小,这里会将t2对象的str属性占用的内存大小一起统计进去，大概=3mb，同时可以结合jprofiler去验证
+//        long size4 = RamUsageEstimator.sizeOf(t2);
+//        System.out.println(size4);
+//
+//        // 对象本身占用内存大小:对象头+实例数据
+//        long size5 = RamUsageEstimator.shallowSizeOf(t2);
 
     }
 }

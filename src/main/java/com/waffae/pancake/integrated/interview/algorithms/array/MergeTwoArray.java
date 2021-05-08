@@ -1,4 +1,4 @@
-package com.waffae.pancake.integrated.interview.algorithms;
+package com.waffae.pancake.integrated.interview.algorithms.array;
 
 /**
  * Leetcode88-合并2个有序数组

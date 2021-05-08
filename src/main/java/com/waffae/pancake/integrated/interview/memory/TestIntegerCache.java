@@ -1,6 +1,9 @@
 package com.waffae.pancake.integrated.interview.memory;
 
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.List;
 
 /**
  * @author: xiaoshuangyi
@@ -19,6 +22,16 @@ public class TestIntegerCache {
 
         Integer b = Integer.valueOf(120000);
 
+        List<String> list = Lists.newArrayList("11");
+        test1(list);
+        for(String s : list){
+            System.out.println(s);
+        }
+
+    }
+
+    public static void test1(List<String> list){
+        list.add("22");
     }
 
 }

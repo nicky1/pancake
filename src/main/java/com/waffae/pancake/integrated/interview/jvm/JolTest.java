@@ -26,8 +26,8 @@ public class JolTest {
          * 因为mark word放不下，所以会进行锁升级成 轻量级锁或重量级锁。
          * 1.重量级锁可以模拟同时开启t1，t2两个线程。
          */
-//        int h1 = System.identityHashCode(user);
-        System.out.println(user.hashCode());
+        int h1 = System.identityHashCode(user);
+//        System.out.println(user.hashCode());
 
         // synchronized锁,会使用到对象头上的mark word,这里通过jol对比观察
 //        synchronized (user) {

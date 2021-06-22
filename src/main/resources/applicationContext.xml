@@ -3,15 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="A" class="com.waffae.pancake.integrated.interview.spring.circual.A" scope="prototype">
+    <bean id="A" class="com.waffae.pancake.integrated.tech.spring.circual.A" scope="prototype">
         <property name="b" ref="B"/>
     </bean>
 
-    <bean id="B" class="com.waffae.pancake.integrated.interview.spring.circual.B" scope="prototype">
+    <bean id="B" class="com.waffae.pancake.integrated.tech.spring.circual.B" scope="prototype">
         <property name="c" ref="C"/>
     </bean>
 
-    <bean id="C" class="com.waffae.pancake.integrated.interview.spring.circual.C" scope="prototype">
+    <bean id="C" class="com.waffae.pancake.integrated.tech.spring.circual.C" scope="prototype">
         <property name="a" ref="A"/>
     </bean>
 </beans>

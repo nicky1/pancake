@@ -95,6 +95,13 @@
             <version>4.0.0</version>
         </dependency>
 
+        <!--netty-->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.6.Final</version>
+        </dependency>
+
         <!--jmh-->
         <!-- JMH的核心包 https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core -->
         <dependency>

@@ -4,6 +4,8 @@ import com.waffle.pancake.model.T;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
+ * -XX:+UseCompressedOops 测试开启和关闭指针压缩后，对象在内存中占用的大小
+ *
  * 好奇对象分配的过程，大对象和小对象是怎么去计算的
  * # WARNING: Unable to attach Serviceability Agent. You can try again with escalated privileges. Two options: a) use -Djol.tryWithSudo=true to try with sudo; b) echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
  * com.waffae.pancake.model.T object internals:
@@ -37,7 +39,14 @@ public class TestObjectSize {
         String userId = "60616806c9228747e33b9d78";
 
         String tprintable2 = ClassLayout.parseClass(T.class).toPrintable();
-        System.out.println(tprintable2);
+//        System.out.println(tprintable2);
+
+        Integer t1 = new Integer(1);
+        long instancesize11 = ClassLayout.parseInstance(t1).instanceSize();
+        String tprintable11 = ClassLayout.parseInstance(t1).toPrintable();
+
+        System.out.println("instancesize11 size:"+instancesize11);
+        System.out.println("instancesize11 stack:"+tprintable11);
 
         T t = new T();
 //        t.setUserId(userId);

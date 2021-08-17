@@ -13,7 +13,7 @@ public class TestPlus {
 //        i = i++;
         int j = i++;
         System.out.println(i);
-//        System.out.println(j);
+        System.out.println(j);
 
 
     }

@@ -17,8 +17,6 @@ public class TestIntegerCache {
         // -Djava.lang.Integer.IntegerCache.high=1000
         //-XX:AutoBoxCacheMax=20000
         Integer a = 10000;
-        String value = sun.misc.VM.getSavedProperty("java.lang.Integer.IntegerCache.high");
-        log.info(value);
 
         Integer b = Integer.valueOf(120000);
 

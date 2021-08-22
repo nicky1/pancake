@@ -12,6 +12,7 @@ public class AqsTest {
 //        AbstractQueuedSynchronizer aqs
 
         ReentrantLock lock = new ReentrantLock();
+        lock.lock();
 
     }
 }

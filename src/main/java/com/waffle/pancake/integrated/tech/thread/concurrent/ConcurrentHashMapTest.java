@@ -15,6 +15,8 @@ public class ConcurrentHashMapTest {
         hashMap.put("ff", 3);
 
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+        // 优化点1.
+
 
     }
 

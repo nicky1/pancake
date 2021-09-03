@@ -16,7 +16,7 @@ public class CopyOnWriteListTest {
 
     public static void main(String[] args) {
         // 线程不安全
-        List<String> list = new ArrayList();
+        List<String> Listst = new ArrayList();
 //        for (int i = 1; i <= 100; i++) {
 //            new Thread(new Runnable() {
 //                @Override

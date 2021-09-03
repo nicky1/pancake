@@ -6,12 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ThreadLocalTest {
 
     //1.通过匿名内部类覆盖ThreadLocal的initialValue方法,指定初始值
-    private ThreadLocal<Integer> seqNum = new ThreadLocal<Integer>() {
-        @Override
-        protected Integer initialValue() {
-            return 0;
-        }
-    };
+    private ThreadLocal<Integer> seqNum = ThreadLocal.withInitial(() -> 0);
 
     //2.获取下一个序列值
     public int getSeqNextNum() {

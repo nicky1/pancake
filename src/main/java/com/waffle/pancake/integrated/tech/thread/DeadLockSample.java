@@ -19,16 +19,18 @@ public class DeadLockSample {
 
         DeadData data = new DeadData("t1", lockA, lockB);
 
+        data.wait();
+
         DeadData data1 = new DeadData("t2", lockB, lockA);
 
         Thread t1 = new Thread(data::monitorDead);
 
         Thread t2 = new Thread(data1::monitorDead);
 
-        t1.start();
-        t2.start();
-        t1.join();
-        t2.join();
+//        t1.start();
+//        t2.start();
+//        t1.join();
+//        t2.join();
 
         log.info("done");
     }

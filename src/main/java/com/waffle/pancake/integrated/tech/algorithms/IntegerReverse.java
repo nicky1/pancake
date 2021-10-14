@@ -9,7 +9,7 @@ package com.waffle.pancake.integrated.tech.algorithms;
 public class IntegerReverse {
 
     public static void main(String[] args) {
-        int a = 1534236469;
+        int a = 123;
         int x = integerReverse(a);
         System.out.println(x);
 //        System.out.println(Integer.MAX_VALUE);

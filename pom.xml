@@ -103,13 +103,6 @@
             <version>1.0.2</version>
         </dependency>
 
-        <!--测试自定义starter-->
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>threadpool-spring-boot-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <!--lucene-->
         <dependency>
             <groupId>org.apache.lucene</groupId>

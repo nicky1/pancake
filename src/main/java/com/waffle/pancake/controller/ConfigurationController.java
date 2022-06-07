@@ -1,6 +1,5 @@
 package com.waffle.pancake.controller;
 
-import com.example.starter.config.ThreadPoolAutoConfiguration;
 import com.waffle.pancake.model.properties.Lucy;
 import com.waffle.pancake.model.properties.Lucy2;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -26,9 +25,6 @@ public class ConfigurationController {
 
     @Resource
     private Lucy2 lucy2;
-
-    @Resource
-    private ThreadPoolAutoConfiguration threadPoolAutoConfiguration;
 
     @GetMapping(value = "/api/v1/config/getbean")
     public ResponseEntity getConfigFromBean() {

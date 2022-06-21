@@ -133,6 +133,12 @@
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
             <version>1.21</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-math3</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- JMH依赖注解,需要注解处理包 https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-generator-annprocess -->

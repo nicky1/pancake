@@ -3,14 +3,11 @@ package com.waffle.pancake.integrated.tech.thread.ttl;
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.alibaba.ttl.TtlRunnable;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * @description: 测试阿里开源的多线程框架TTL，解决在线程池场景下,线程间传递变量串的问题。
- * @author: xsyi
+ * @author: yxs
  * @date: 2022-06-07
  */
 public class TestTTL {
@@ -48,20 +45,20 @@ public class TestTTL {
                 context.set("s1");
 
                 TtlRunnable ttlRunnable = TtlRunnable.get(task);
-                executorService.submit(ttlRunnable);
+                executorService.submit(task);
 
             }else{
                 context.set("s2");
                 TtlRunnable ttlRunnable = TtlRunnable.get(task);
 
-                executorService.submit(ttlRunnable);
+                executorService.submit(task);
             }
 
         }
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         TestTTL test = new TestTTL();
 //        test.testParentThread();
 

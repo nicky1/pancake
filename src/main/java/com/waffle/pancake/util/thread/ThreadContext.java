@@ -55,4 +55,8 @@ public class ThreadContext {
         return (UserInfo) getValues(USER_KEY);
     }
 
+    public static void remove() {
+        ttl.remove();
+    }
+
 }

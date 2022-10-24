@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @desc: TTL线程池测试，1:线程池使用TTL封装 2:runnable对象使用ttl封装。
@@ -47,13 +48,32 @@ public class TestTtlController {
     }
 
     @GetMapping("/test/pool")
-    public ResponseEntity pool(@RequestParam Integer userId) throws InterruptedException {
+    public ResponseEntity pool(@RequestParam Integer userId) throws Exception {
         Runnable runnable = () -> {
+            UserInfo userInfo = new UserInfo();
+            userInfo.setUserId(3);
+            ThreadContext.bindUser(userInfo);
+            try {
+                TimeUnit.MILLISECONDS.sleep(10);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             UserInfo user = ThreadContext.getUser();
+            log.info("1111");
+//            Integer contextValue = Objects.isNull(user) ? 0 : user.getUserId();
+        };
+        Runnable runnable2 = () -> {
+            UserInfo user = ThreadContext.getUser();
+            try {
+                TimeUnit.MILLISECONDS.sleep(100);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             Integer contextValue = Objects.isNull(user) ? 0 : user.getUserId();
             log.info("传入的userId和从线程上下文获取的是否一致2,flag:{},传入userId:{},上下文获取:{}", (userId.equals(contextValue)), userId, contextValue);
         };
         CompletableFuture.runAsync(runnable, commonThreadPool);
+        CompletableFuture.runAsync(runnable2, commonThreadPool);
 
         return ResponseEntity.ok().build();
     }

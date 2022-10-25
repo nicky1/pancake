@@ -9,7 +9,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @desc:
@@ -34,7 +33,7 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        TimeUnit.MILLISECONDS.sleep(5);
+//        TimeUnit.MILLISECONDS.sleep(5);
         ThreadContext.unBindUser();
         super.afterCompletion(request, response, handler, ex);
     }

@@ -81,11 +81,16 @@ public class TestTtlController {
     @GetMapping("/test/ttl/pool")
     public ResponseEntity ttlPool(@RequestParam Integer userId) {
         Runnable runnable = () -> {
+            try {
+//                TimeUnit.SECONDS.sleep(3);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
             UserInfo user = ThreadContext.getUser();
             Integer contextValue = Objects.isNull(user) ? 0 : user.getUserId();
             log.info("传入的userId和从线程上下文获取的是否一致2,flag:{},传入userId:{},上下文获取:{}", (userId.equals(contextValue)), userId, contextValue);
         };
-        CompletableFuture.runAsync(TtlRunnable.get(runnable), commonThreadPool);
+        CompletableFuture.runAsync(runnable, commonThreadPool);
         return ResponseEntity.ok().build();
     }
 }

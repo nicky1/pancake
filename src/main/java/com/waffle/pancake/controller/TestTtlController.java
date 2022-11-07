@@ -5,9 +5,7 @@ import com.waffle.pancake.dto.UserInfo;
 import com.waffle.pancake.util.thread.ThreadContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Objects;
@@ -59,16 +57,16 @@ public class TestTtlController {
                 throw new RuntimeException(e);
             }
             UserInfo user = ThreadContext.getUser();
-            log.info("1111");
-//            Integer contextValue = Objects.isNull(user) ? 0 : user.getUserId();
+            Integer contextValue = Objects.isNull(user) ? 0 : user.getUserId();
+//            log.info("传入的userId和从线程上下文获取的是否一致2,flag:{},传入userId:{},上下文获取:{}", (userId.equals(contextValue)), userId, contextValue);
         };
         Runnable runnable2 = () -> {
-            UserInfo user = ThreadContext.getUser();
             try {
                 TimeUnit.MILLISECONDS.sleep(100);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            UserInfo user = ThreadContext.getUser();
             Integer contextValue = Objects.isNull(user) ? 0 : user.getUserId();
             log.info("传入的userId和从线程上下文获取的是否一致2,flag:{},传入userId:{},上下文获取:{}", (userId.equals(contextValue)), userId, contextValue);
         };
@@ -80,17 +78,17 @@ public class TestTtlController {
 
     @GetMapping("/test/ttl/pool")
     public ResponseEntity ttlPool(@RequestParam Integer userId) {
-        Runnable runnable = () -> {
+        CompletableFuture.runAsync(() -> {
+            // 模拟业务耗时
             try {
-//                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+                TimeUnit.MILLISECONDS.sleep(200);
+            } catch (InterruptedException e) {
+
             }
             UserInfo user = ThreadContext.getUser();
             Integer contextValue = Objects.isNull(user) ? 0 : user.getUserId();
-            log.info("传入的userId和从线程上下文获取的是否一致2,flag:{},传入userId:{},上下文获取:{}", (userId.equals(contextValue)), userId, contextValue);
-        };
-        CompletableFuture.runAsync(runnable, commonThreadPool);
+            log.info("传入的userId和从线程上下文获取的是否一致,flag:{},传入userId:{},上下文获取:{}", (userId.equals(contextValue)), userId, contextValue);
+        }, commonThreadPool);
         return ResponseEntity.ok().build();
     }
 }

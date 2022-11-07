@@ -6,6 +6,7 @@ import com.waffle.pancake.dto.UserInfo;
 
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @desc:
@@ -14,7 +15,29 @@ import java.util.Objects;
  **/
 public class ThreadContext {
 
-    private static final TransmittableThreadLocal<Map<Object, Object>> ttl = new TransmittableThreadLocal();
+    private static final TransmittableThreadLocal<Map<Object, Object>> ttl = new TransmittableThreadLocal() {
+        @Override
+        protected Map<Object, Object> childValue(Object parentValue) {
+            if (parentValue instanceof Map) {
+                return new ConcurrentHashMap<>((Map) parentValue);
+            }
+            return null;
+        }
+
+        @Override
+        protected Map<Object, Object> initialValue() {
+            return new ConcurrentHashMap<>();
+        }
+
+        @Override
+        public Map<Object, Object> copy(Object parentValue) {
+            if (parentValue instanceof Map) {
+                return new ConcurrentHashMap<>((Map) parentValue);
+            }
+            return null;
+        }
+    };
+
     private static final String USER_KEY = ThreadContext.class.getName() + "_USER_KEY";
 
     public static void put(Object key, Object value) {

@@ -3,6 +3,7 @@ package com.waffle.pancake.controller;
 import com.alibaba.ttl.TtlRunnable;
 import com.waffle.pancake.dto.UserInfo;
 import com.waffle.pancake.util.thread.ThreadContext;
+import com.waffle.pancake.util.thread.ThreadContext2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,11 +26,36 @@ public class TestTtlController {
     @Resource
     private ExecutorService commonThreadPool;
 
+    @Resource
+    private ExecutorService commonThreadPool2;
+
     @GetMapping("/test/ttl/get")
     public ResponseEntity testTTL(@RequestParam Integer userId) {
         UserInfo user = ThreadContext.getUser();
         Integer contextValue = Objects.isNull(user) ? 0 : user.getUserId();
         log.info("传入的userId和从线程上下文获取的是否一致,flag:{},传入userId:{},上下文获取:{}", (userId.equals(contextValue)), userId, contextValue);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/test/inher")
+    public ResponseEntity inherTest(@RequestParam Integer userId) {
+        new Thread(() -> {
+            String value = ThreadContext2.getValue();
+            Integer intValue = Integer.valueOf(value);
+            log.info("传入的userId和从线程上下文获取的是否一致2,flag:{},传入userId:{},上下文获取:{}", (userId.equals(intValue)), userId, value);
+
+        }).start();
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/test/inher/pool")
+    public ResponseEntity inherPoolTest(@RequestParam Integer userId) {
+        Runnable runnable = () -> {
+            String value = ThreadContext2.getValue();
+            Integer intValue = Integer.valueOf(value);
+            log.info("传入的userId和从线程上下文获取的是否一致2,flag:{},传入userId:{},上下文获取:{}", (userId.equals(intValue)), userId, value);
+        };
+        CompletableFuture.runAsync(runnable, commonThreadPool2);
         return ResponseEntity.ok().build();
     }
 
@@ -41,7 +67,7 @@ public class TestTtlController {
             log.info("传入的userId和从线程上下文获取的是否一致2,flag:{},传入userId:{},上下文获取:{}", (userId.equals(contextValue)), userId, contextValue);
         };
         TtlRunnable ttlRunnable = TtlRunnable.get(runnable);
-        runnable.run();
+        ttlRunnable.run();
         return ResponseEntity.ok().build();
     }
 
@@ -83,7 +109,6 @@ public class TestTtlController {
             try {
                 TimeUnit.MILLISECONDS.sleep(200);
             } catch (InterruptedException e) {
-
             }
             UserInfo user = ThreadContext.getUser();
             Integer contextValue = Objects.isNull(user) ? 0 : user.getUserId();

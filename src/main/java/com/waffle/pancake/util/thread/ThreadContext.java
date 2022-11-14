@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date: 2022/10/22
  **/
 public class ThreadContext {
+    private static final String USER_KEY = ThreadContext.class.getName() + "_USER_KEY";
 
     private static final TransmittableThreadLocal<Map<Object, Object>> ttl = new TransmittableThreadLocal() {
         @Override
@@ -38,7 +39,6 @@ public class ThreadContext {
         }
     };
 
-    private static final String USER_KEY = ThreadContext.class.getName() + "_USER_KEY";
 
     public static void put(Object key, Object value) {
         if (key == null) {
@@ -50,7 +50,7 @@ public class ThreadContext {
 
     private static void ensureResourceInitialized() {
         if (ttl.get() == null) {
-            ttl.set(Maps.newHashMap());
+            ttl.set(Maps.newConcurrentMap());
         }
     }
 

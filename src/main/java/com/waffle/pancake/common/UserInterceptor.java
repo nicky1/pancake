@@ -2,6 +2,7 @@ package com.waffle.pancake.common;
 
 import com.waffle.pancake.dto.UserInfo;
 import com.waffle.pancake.util.thread.ThreadContext;
+import com.waffle.pancake.util.thread.ThreadContext2;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -9,7 +10,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @desc:
@@ -28,14 +28,16 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
             UserInfo userInfo = new UserInfo();
             userInfo.setUserId(Integer.valueOf(userId));
             ThreadContext.bindUser(userInfo);
+
+            ThreadContext2.set(userId);
         }
         return true;
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        TimeUnit.SECONDS.sleep(2);
         ThreadContext.unBindUser();
+        ThreadContext2.remove();
         super.afterCompletion(request, response, handler, ex);
     }
 }

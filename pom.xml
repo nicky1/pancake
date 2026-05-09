@@ -52,6 +52,11 @@
             <artifactId>spring-boot-starter-log4j2</artifactId>
             <version>2.2.6.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.ortools</groupId>
+            <artifactId>ortools-java</artifactId>
+            <version>9.8.3296</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
